@@ -6,11 +6,12 @@ import prubalaboratorio.demo.Entity.Usuario;
 
 import java.io.Serializable;
 
-@Repository("usuarioRepository")
+@Repository("usuarioRepo")
 public interface UsuarioRepository {
-    public interface UserRepository extends JpaRepository<Usuario, Serializable> {
+    public interface UserRepository extends JpaRepository<Usuario,Serializable> {
 
         public abstract Usuario findByIdUsuario(int idUsuario);
+
 
 
     }

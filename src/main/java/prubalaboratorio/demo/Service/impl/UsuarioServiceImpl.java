@@ -18,12 +18,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     @Qualifier("usuarioConverter")
-    private UsuarioConverter usuarioConverter;
+     UsuarioConverter usuarioConverter;
 
 
    @Autowired
-   @Qualifier("usuarioRepository")
-   private UsuarioRepository usuarioRepository;
+   @Qualifier("usuarioRepo")
+    UsuarioRepository usuarioRepository;
 
 
 
@@ -34,7 +34,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public List<UsuarioModel> listAllUsers() {
-        List<Usuario> usuarios;
+        List <Usuario> usuarios;
         return null;
     }
 
