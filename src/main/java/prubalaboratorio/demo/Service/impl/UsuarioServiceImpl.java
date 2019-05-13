@@ -11,30 +11,28 @@ import prubalaboratorio.demo.Service.UsuarioService;
 
 import java.util.List;
 
-
 @Service("usuarioServiceImpl")
 public class UsuarioServiceImpl implements UsuarioService {
-
+    @Autowired
+    @Qualifier("usuarioRepository")
+    UsuarioRepository usuarioRepository;
 
     @Autowired
     @Qualifier("usuarioConverter")
-     UsuarioConverter usuarioConverter;
-
-
-   @Autowired
-   @Qualifier("usuarioRepo")
-    UsuarioRepository usuarioRepository;
+    UsuarioConverter usuarioConverter;
 
 
 
     @Override
     public UsuarioModel addUser(UsuarioModel usuarioModel) {
+       List <Usuario> usuarios= usuarioRepository.findAll();
         return null;
     }
 
     @Override
     public List<UsuarioModel> listAllUsers() {
-        List <Usuario> usuarios;
+
+
         return null;
     }
 
