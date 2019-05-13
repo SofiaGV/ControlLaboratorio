@@ -9,6 +9,7 @@ import prubalaboratorio.demo.Model.UsuarioModel;
 import prubalaboratorio.demo.Repository.UsuarioRepository;
 import prubalaboratorio.demo.Service.UsuarioService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("usuarioServiceImpl")
@@ -25,15 +26,21 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public UsuarioModel addUser(UsuarioModel usuarioModel) {
-       List <Usuario> usuarios= usuarioRepository.findAll();
-        return null;
+
+        Usuario temp = usuarioConverter.convertirUserModelaUsuario(usuarioModel);
+        Usuario user = usuarioRepository.save(temp);
+        return usuarioConverter.convertirUsuarioaUsuarioModel(user);
     }
 
     @Override
     public List<UsuarioModel> listAllUsers() {
+        List <Usuario> usuarios= usuarioRepository.findAll();
 
+        List<UsuarioModel> usuarioModels = new ArrayList();
+        for (Usuario user : usuarios)
+            usuarioModels.add(usuarioConverter.convertirUsuarioaUsuarioModel(user));
+        return usuarioModels;
 
-        return null;
     }
 
     @Override
