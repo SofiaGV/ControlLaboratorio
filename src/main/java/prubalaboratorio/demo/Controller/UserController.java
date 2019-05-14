@@ -41,9 +41,9 @@ public class UserController {
     @GetMapping("/registrar")
     public String redirectUserForm(Model model, @RequestParam(name = "idUsuario", required = false) String idUsuario) {
 
-
+idUsuario="none";
         UsuarioModel usuarioModel = new UsuarioModel();
-        if(idUsuario=="none") {
+        if(!idUsuario.equals("none")) {
             usuarioModel = usuarioService.findUserByIdUsuarioModel(idUsuario);
         }
         model.addAttribute("usuarioModel",usuarioModel);
@@ -58,7 +58,7 @@ public class UserController {
             model.addAttribute("result", 1);
         else
             model.addAttribute("result", 0);
-        return "redirect:/users/showUsers";
+        return "redirect:/user/registrar";
     }
 
 

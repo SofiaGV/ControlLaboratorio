@@ -9,7 +9,7 @@ public class UsuarioModel {
     private String contrasena;
     private String nombre;
     private String apellido;
-    private TipoUsuario idTipoUsuario;
+    private int idTipoUsuario;
     private boolean administrador;
 
     public UsuarioModel(){

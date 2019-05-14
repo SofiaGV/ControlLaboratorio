@@ -55,6 +55,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public UsuarioModel findUserByIdUsuarioModel(String idUsuario) {
-        return null;
+
+        return usuarioConverter.convertirUsuarioaUsuarioModel(findUsuarioByIdUsuario(idUsuario));
     }
 }

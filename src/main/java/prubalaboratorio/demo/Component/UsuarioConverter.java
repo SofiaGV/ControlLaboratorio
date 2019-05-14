@@ -1,11 +1,19 @@
 package prubalaboratorio.demo.Component;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import prubalaboratorio.demo.Entity.TipoUsuario;
 import prubalaboratorio.demo.Entity.Usuario;
 import prubalaboratorio.demo.Model.UsuarioModel;
+import prubalaboratorio.demo.Repository.TipoUsuarioRepository;
 
 @Component("usuarioConverter")
 public class UsuarioConverter {
+
+    @Autowired
+    @Qualifier("tipoUsuarioRepository")
+    private TipoUsuarioRepository tipoUsuarioRepository;
 
     public Usuario convertirUserModelaUsuario(UsuarioModel usuarioModel){
         Usuario usuario = new Usuario();
@@ -14,7 +22,9 @@ public class UsuarioConverter {
         usuario.setNombre(usuarioModel.getNombre());
         usuario.setApellido(usuarioModel.getApellido());
         usuario.setAdministrador(usuarioModel.isAdministrador());
-        usuario.setIdtipousuario(usuarioModel.getIdTipoUsuario());
+        TipoUsuario tipoUsuario = tipoUsuarioRepository.findByIdTipoUsuario(usuarioModel.getIdTipoUsuario());
+
+        usuario.setIdtipousuario(tipoUsuario);
 
         return usuario;
     }
@@ -27,7 +37,7 @@ public class UsuarioConverter {
         usuarioModel.setNombre(usuario.getNombre());
         usuarioModel.setApellido(usuario.getApellido());
         usuarioModel.setAdministrador(usuario.isAdministrador());
-        usuarioModel.setIdTipoUsuario(usuario.getIdtipousuario());
+        usuarioModel.setIdTipoUsuario(usuario.getIdtipousuario().getIdTipoUsuario());
 
 
 
