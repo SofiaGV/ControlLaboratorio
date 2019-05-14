@@ -12,7 +12,6 @@ public class Usuario {
 
     @Id
     @Column(name="id_usuario")
-    @GeneratedValue
     private String idUsuario;
     @Column(name = "contrasena", nullable = false, length = 60)
     private String contrasena;
