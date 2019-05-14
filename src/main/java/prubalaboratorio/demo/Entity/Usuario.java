@@ -13,9 +13,9 @@ public class Usuario {
     @Id
     @Column(name="id_usuario")
     @GeneratedValue
-    private int idUsuario;
-    @Column(name = "contraseña", nullable = false, length = 60)
-    private String contraseña;
+    private String idUsuario;
+    @Column(name = "contrasena", nullable = false, length = 60)
+    private String contrasena;
     @Column(name="nombre")
     private String nombre;
     @Column(name="apellido")

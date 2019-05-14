@@ -44,17 +44,17 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Usuario findUsuarioByIdUsuario(int idUsuario) {
+    public Usuario findUsuarioByIdUsuario(String idUsuario) {
         return null;
     }
 
     @Override
-    public void removerUsuario(int idUsuario) {
+    public void removerUsuario(String idUsuario) {
 
     }
 
     @Override
-    public UsuarioModel findUserByIdUsuarioModel(int idUsuario) {
+    public UsuarioModel findUserByIdUsuarioModel(String idUsuario) {
         return null;
     }
 }

@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Repository("usuarioRepository")
 public interface UsuarioRepository extends JpaRepository<Usuario,Serializable>{
 
-        public abstract Usuario findByIdUsuario(int idUsuario);
+        public abstract Usuario findByIdUsuario(String idUsuario);
 
 
 

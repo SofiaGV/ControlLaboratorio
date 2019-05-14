@@ -5,8 +5,8 @@ import prubalaboratorio.demo.Entity.TipoUsuario;
 
 @Data
 public class UsuarioModel {
-    private int idUsuario;
-    private String contraseña;
+    private String idUsuario;
+    private String contrasena;
     private String nombre;
     private String apellido;
     private TipoUsuario idTipoUsuario;

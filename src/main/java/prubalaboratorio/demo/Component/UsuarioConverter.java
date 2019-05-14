@@ -10,7 +10,7 @@ public class UsuarioConverter {
     public Usuario convertirUserModelaUsuario(UsuarioModel usuarioModel){
         Usuario usuario = new Usuario();
         usuario.setIdUsuario(usuarioModel.getIdUsuario());
-        usuario.setContraseña(usuarioModel.getContraseña());
+        usuario.setContrasena(usuarioModel.getContrasena());
         usuario.setNombre(usuarioModel.getNombre());
         usuario.setApellido(usuarioModel.getApellido());
         usuario.setAdministrador(usuarioModel.isAdministrador());
@@ -23,7 +23,7 @@ public class UsuarioConverter {
         UsuarioModel usuarioModel = new UsuarioModel();
 
         usuarioModel.setIdUsuario(usuario.getIdUsuario());
-        usuarioModel.setContraseña(usuario.getContraseña());
+        usuarioModel.setContrasena(usuario.getContrasena());
         usuarioModel.setNombre(usuario.getNombre());
         usuarioModel.setApellido(usuario.getApellido());
         usuarioModel.setAdministrador(usuario.isAdministrador());

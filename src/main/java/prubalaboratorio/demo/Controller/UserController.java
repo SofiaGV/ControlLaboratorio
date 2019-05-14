@@ -1,14 +1,15 @@
 package prubalaboratorio.demo.Controller;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import prubalaboratorio.demo.Constant.ViewConstants;
+import prubalaboratorio.demo.Model.UsuarioModel;
 import prubalaboratorio.demo.Service.UsuarioService;
 
 @Controller
@@ -17,7 +18,10 @@ public class UserController {
 
     @Autowired
     @Qualifier("usuarioServiceImpl")
-    private UsuarioService userService;
+    private UsuarioService usuarioService;
+
+    private static final Log log = LogFactory.getLog(UserController.class);
+
 
     @GetMapping("/cancel")
     public String cancel(){
@@ -26,14 +30,47 @@ public class UserController {
 
     @GetMapping("/index")
     public ModelAndView mostrarUsuarios(){
-        int n=0;
 
         ModelAndView mav = new ModelAndView(ViewConstants.USERS);
-        mav.addObject("users",userService.listAllUsers());
+        mav.addObject("users",usuarioService.listAllUsers());
 
 
          return mav;
     }
+
+    @GetMapping("/registrar")
+    public String redirectUserForm(Model model, @RequestParam(name = "idUsuario", required = false) String idUsuario) {
+
+
+        UsuarioModel usuarioModel = new UsuarioModel();
+        if(idUsuario=="none") {
+            usuarioModel = usuarioService.findUserByIdUsuarioModel(idUsuario);
+        }
+        model.addAttribute("usuarioModel",usuarioModel);
+        return ViewConstants.USERS_FORM;
+    }
+
+
+    @PostMapping("/adduser")
+    public String addUser(@ModelAttribute(name = "usuarioModel") UsuarioModel usuarioModel, Model model) {
+        log.info("Method: addUser() -- Params: " + usuarioModel.toString());
+        if (usuarioService.addUser(usuarioModel) != null)
+            model.addAttribute("result", 1);
+        else
+            model.addAttribute("result", 0);
+        return "redirect:/users/showUsers";
+    }
+
+
+
+
+   // @GetMapping("/removeuser")
+    //public ModelAndView removeUser(@RequestParam(name = "username", required = true) String username) {
+      //  userService.removeUser(username);
+        //return showUsers();
+    //}
+
+
 
 
 

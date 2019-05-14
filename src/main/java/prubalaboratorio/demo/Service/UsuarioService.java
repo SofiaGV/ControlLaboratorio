@@ -11,9 +11,9 @@ public interface UsuarioService {
 
     public abstract List<UsuarioModel> listAllUsers();
 
-    public abstract Usuario findUsuarioByIdUsuario(int idUsuario);
+    public abstract Usuario findUsuarioByIdUsuario(String idUsuario);
 
-    public abstract void removerUsuario(int idUsuario);
+    public abstract void removerUsuario(String idUsuario);
 
-    public abstract UsuarioModel findUserByIdUsuarioModel(int idUsuario);
+    public abstract UsuarioModel findUserByIdUsuarioModel(String idUsuario);
 }
