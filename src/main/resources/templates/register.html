@@ -141,16 +141,18 @@
                     <div class="form-group required">
                         <label  class="col-sm-2 control-label">ID Usuario</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control"  th:if="${usuarioModel.idUsuario != 0}" th:field="*{idUsuario}" th:value="${idUsuario}"></input>
+                            <input type="text" class="form-control" th:if="${usuarioModel.idUsuario != none}" th:field="*{idUsuario}" th:value="${idUsuario}"></input>
                             <input type="hidden" class="form-control" th:field="*{idUsuario}" th:value="${idUsuario}"></input>
-                            <input type="text" class="form-control" th:if="${usuarioModel.idUsuario == 0}" th:field="*{idUsuario}" th:value="${idUsuario}"></input>
+                            <input type="text" class="form-control" th:if="${usuarioModel.idUsuario == none}" th:field="*{idUsuario}" th:value="${idUsuario}"></input>
                         </div>
                     </div>
                     <br><br>
-
                 </fieldset>
                 <fieldset id="address">
 
+
+
+                    
                     <legend>Datos De Usuario</legend>
                     <div class="form-group required">
                         <label for="input-country" class="col-sm-2 control-label">Tipo De Usuario</label>

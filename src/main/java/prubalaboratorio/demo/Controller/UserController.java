@@ -38,7 +38,7 @@ public class UserController {
          return mav;
     }
 
-    @GetMapping("/registrar")
+    @GetMapping("/form")
     public String redirectUserForm(Model model, @RequestParam(name = "idUsuario", required = false) String idUsuario) {
 
 idUsuario="none";
@@ -58,7 +58,7 @@ idUsuario="none";
             model.addAttribute("result", 1);
         else
             model.addAttribute("result", 0);
-        return "redirect:/user/registrar";
+        return "redirect:/user/form";
     }
 
 
